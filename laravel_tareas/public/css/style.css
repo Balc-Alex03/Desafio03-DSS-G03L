@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.menu-usuario {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-logout {
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: 70vh;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    color: #666;
+    margin-top: auto;
+}
+
+.auth-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    max-width: 450px;
+    margin: 3rem auto;
+}
+
+.auth-box h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+.error-alerta {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.btn-nueva {
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-nueva:hover { background-color: #27ae60; }
+
+.sin-tareas {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 3rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+.listado-tareas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tarea-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tarea-contenido h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.tarea-contenido p {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.estado {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.estado.pendiente { background-color: #f1c40f; color: #fff; }
+.estado.en_progreso { background-color: #3498db; color: #fff; }
+.estado.completada { background-color: #2ecc71; color: #fff; }
+
+.tarea-acciones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-editar {
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.btn-editar:hover { background-color: #d35400; }
+
+.form-eliminar { margin: 0; }
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.btn-eliminar:hover { background-color: #c0392b; }
+
+/* Contenedor de botones de cambio rápido */
+.btns-estado {
+    display: flex;
+    gap: 5px;
+    margin-top: 0.8rem;
+}
+
+/* Botón base */
+.btn-estado {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 20px; /* Redondeado igual que tus badges */
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+/* Estados activos simulando tus badges */
+.btn-estado[data-estado="pendiente"].activo {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+    color: #fff;
+}
+
+.btn-estado[data-estado="en_progreso"].activo {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+
+.btn-estado[data-estado="completada"].activo {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    color: #fff;
+}
+
+/* Efecto hover suave para indicar interactividad */
+.btn-estado:not(.activo):hover {
+    background-color: #f1f1f1;
+    border-color: #999;
+}
+.form-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-box h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.btn-guardar {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-guardar:hover { background-color: #2980b9; }
+
+.btn-cancelar {
+    background-color: #95a5a6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+}
+.btn-cancelar:hover { background-color: #7f8c8d; }

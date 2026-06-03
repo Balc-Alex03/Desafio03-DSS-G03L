@@ -3,7 +3,7 @@ class Database {
     public static function conectar() {
         $host = 'localhost';
         $user = 'root';
-        $password = 'Depediex';
+        $password = '';
         $database = 'db_desafio03';
         $conexion = new mysqli($host, $user, $password, $database);
 
