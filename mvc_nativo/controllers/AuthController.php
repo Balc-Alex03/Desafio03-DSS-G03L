@@ -1,5 +1,5 @@
 <?php
-require_once 'models/UsuarioModel.php';
+require_once __DIR__ . '/../models/UsuarioModel.php';
 
 class AuthController {
     private $usuarioModel;
@@ -38,7 +38,7 @@ class AuthController {
             }
         }
 
-        require_once 'views/auth/login.php';
+        require_once __DIR__ . '/../views/auth/login.php';
     }
 
     public function registro() {
@@ -70,7 +70,7 @@ class AuthController {
             }
         }
 
-        require_once 'views/auth/registro.php';
+        require_once __DIR__ . '/../views/auth/registro.php';
     }
 
     public function logout() {

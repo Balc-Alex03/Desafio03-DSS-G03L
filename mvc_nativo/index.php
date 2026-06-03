@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once 'config/Database.php';
+require_once __DIR__ . '/config/Database.php';
 
 $controllerInput = $_GET['controller'] ?? 'auth';
 $action = $_GET['action'] ?? 'login';
 
 $controllerClass = ucfirst($controllerInput) . 'Controller';
-$controllerFile = 'controllers/' . $controllerClass . '.php';
+$controllerFile = __DIR__ . '/controllers/' . $controllerClass . '.php';
 
 if (file_exists($controllerFile)) {
     require_once $controllerFile;

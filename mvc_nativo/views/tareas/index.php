@@ -17,9 +17,16 @@
                     <h3><?= htmlspecialchars($tarea['titulo']) ?></h3>
                     <p><?= nl2br(htmlspecialchars($tarea['descripcion'])) ?></p>
                     
-                    <span class="estado <?= htmlspecialchars($tarea['estado']) ?>">
-                        <?= ucfirst(str_replace('_', ' ', htmlspecialchars($tarea['estado']))) ?>
-                    </span>
+                    <div class="btns-estado" data-id="<?= $tarea['id'] ?>">
+                        <button class="btn-estado <?= $tarea['estado'] === 'pendiente' ? 'activo' : '' ?>" 
+                                data-estado="pendiente">Pendiente</button>
+                                
+                        <button class="btn-estado <?= $tarea['estado'] === 'en_progreso' ? 'activo' : '' ?>" 
+                                data-estado="en_progreso">En Progreso</button>
+                                
+                        <button class="btn-estado <?= $tarea['estado'] === 'completada' ? 'activo' : '' ?>" 
+                                data-estado="completada">Completada</button>
+                    </div>
                 </div>
                 
                 <div class="tarea-acciones">

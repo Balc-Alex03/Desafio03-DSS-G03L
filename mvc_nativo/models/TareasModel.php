@@ -1,5 +1,5 @@
 <?php
-class TareaModel {
+class TareasModel {
     private $db;
 
     public function __construct() {
@@ -55,6 +55,18 @@ class TareaModel {
         $stmt = $this->db->prepare($sql);
         
         $stmt->bind_param("sssii", $titulo, $descripcion, $estado, $id, $usuario_id);
+        
+        $resultado = $stmt->execute();
+        $stmt->close();
+        
+        return $resultado;
+    }
+
+    public function actualizarEstado($id, $usuario_id, $estado) {
+        $sql = "UPDATE tareas SET estado = ? WHERE id = ? AND usuario_id = ?";
+        $stmt = $this->db->prepare($sql);
+        
+        $stmt->bind_param("sii", $estado, $id, $usuario_id);
         
         $resultado = $stmt->execute();
         $stmt->close();

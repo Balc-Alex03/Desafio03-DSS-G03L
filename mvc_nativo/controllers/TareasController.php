@@ -1,11 +1,11 @@
 <?php
-require_once 'models/TareaModel.php';
+require_once __DIR__ . '/../models/TareasModel.php';
 
 class TareasController {
-    private $tareaModel;
+    private $tareasModel;
 
     public function __construct() {
-        $this->tareaModel = new TareaModel();
+        $this->tareasModel = new TareasModel();
     }
 
     private function verificarSesion() {
@@ -19,9 +19,9 @@ class TareasController {
         $this->verificarSesion();
         
         $usuario_id = $_SESSION['usuario_id'];
-        $tareas = $this->tareaModel->obtenerPorUsuario($usuario_id);
+        $tareas = $this->tareasModel->obtenerPorUsuario($usuario_id);
 
-        require_once 'views/tareas/index.php';
+        require_once __DIR__ . '/../views/tareas/index.php';
     }
 
     public function crear() {
@@ -37,7 +37,7 @@ class TareasController {
             if (empty($titulo)) {
                 $error = "El título de la tarea es obligatorio.";
             } else {
-                $exito = $this->tareaModel->crear($usuario_id, $titulo, $descripcion);
+                $exito = $this->tareasModel->crear($usuario_id, $titulo, $descripcion);
                 if ($exito) {
                     header('Location: index.php?controller=tareas&action=index');
                     exit();
@@ -47,7 +47,7 @@ class TareasController {
             }
         }
 
-        require_once 'views/tareas/crear.php';
+        require_once __DIR__ . '/../views/tareas/crear.php';
     }
 
     public function editar() {
@@ -70,7 +70,7 @@ class TareasController {
             if (empty($titulo)) {
                 $error = "El título no puede quedar vacío.";
             } else {
-                $exito = $this->tareaModel->actualizar($id, $usuario_id, $titulo, $descripcion, $estado);
+                $exito = $this->tareasModel->actualizar($id, $usuario_id, $titulo, $descripcion, $estado);
                 if ($exito) {
                     header('Location: index.php?controller=tareas&action=index');
                     exit();
@@ -80,13 +80,13 @@ class TareasController {
             }
         }
 
-        $tarea = $this->tareaModel->obtenerPorId($id, $usuario_id);
+        $tarea = $this->tareasModel->obtenerPorId($id, $usuario_id);
 
         if (!$tarea) {
             die("Error 404: Tarea no encontrada o no tienes permisos para verla.");
         }
 
-        require_once 'views/tareas/editar.php';
+        require_once __DIR__ . '/../views/tareas/editar.php';
     }
 
     public function eliminar() {
@@ -96,7 +96,7 @@ class TareasController {
         $usuario_id = $_SESSION['usuario_id'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id) {
-            $this->tareaModel->eliminar($id, $usuario_id);
+            $this->tareasModel->eliminar($id, $usuario_id);
         }
 
         header('Location: index.php?controller=tareas&action=index');
